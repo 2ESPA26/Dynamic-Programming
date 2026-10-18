@@ -1,46 +1,39 @@
 from carregar_dados import escadas
 
-escadas_ordenadas = sorted(escadas)
 
-inicio = 0
-fim = len(escadas_ordenadas) - 1
+def busca_binaria(escadas, alvo):
+    inicio = 0
+    fim = len(escadas) - 1
+    comparacoes = 0
 
-meio = (inicio + fim) // 2
+    while inicio <= fim:
+        meio = (inicio + fim) // 2
+        comparacoes += 1
 
-print("Lista ordenada:", escadas_ordenadas)
-print("Posição inicial:", inicio)
-print("Posição final:", fim)
-print("Posição do meio:", meio)
-print("Escada do meio:", escadas_ordenadas[meio])
+        if escadas[meio] == alvo:
+            return meio, comparacoes
 
-from carregar_dados import escadas
+        elif alvo < escadas[meio]:
+            fim = meio - 1
 
-escadas_ordenadas = sorted(escadas)
-procurado = "SIM-ECR-001"
+        else:
+            inicio = meio + 1
 
-inicio = 0
-fim = len(escadas_ordenadas) - 1
+    return -1, comparacoes
 
-comparacoes = 0
-posicao = -1
 
-while inicio <= fim:
-    meio = (inicio + fim) // 2
-    comparacoes += 1
+if __name__ == "__main__":
+    escadas_ordenadas = sorted(escadas)
+    procurado = "SIM-ECR-001"
 
-    if escadas_ordenadas[meio] == procurado:
-        posicao = meio
-        break
+    posicao, comparacoes = busca_binaria(
+        escadas_ordenadas, procurado
+    )
 
-    elif procurado < escadas_ordenadas[meio]:
-        fim = meio - 1
-
+    if posicao == -1:
+        print("Escada não encontrada")
     else:
-        inicio = meio + 1
+        print("Escada encontrada na posição:", posicao)
 
-if posicao == -1:
-    print("Escada não encontrada")
-else:
-    print("Escada encontrada na posição:", posicao)
+    print("Comparações:", comparacoes)
 
-print("Comparações:", comparacoes)
