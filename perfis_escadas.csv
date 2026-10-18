@@ -1,0 +1,31 @@
+id_escada,estacao,grupo,perfil
+SIM-ECR-001,ESTACAO-01,não crítica,desgaste_gradual
+SIM-ECR-002,ESTACAO-02,não crítica,saudavel
+SIM-ECR-003,ESTACAO-03,crítica,saudavel
+SIM-ECR-004,ESTACAO-04,não crítica,desgaste_gradual
+SIM-ECR-005,ESTACAO-05,não crítica,desgaste_gradual
+SIM-ECR-006,ESTACAO-06,crítica,saudavel
+SIM-ECR-007,ESTACAO-07,não crítica,saudavel
+SIM-ECR-008,ESTACAO-08,não crítica,saudavel
+SIM-ECR-009,ESTACAO-01,crítica,saudavel
+SIM-ECR-010,ESTACAO-02,não crítica,saudavel
+SIM-ECR-011,ESTACAO-03,não crítica,saudavel
+SIM-ECR-012,ESTACAO-04,crítica,desgaste_gradual
+SIM-ECR-013,ESTACAO-05,não crítica,falhas_pontuais
+SIM-ECR-014,ESTACAO-06,não crítica,desgaste_gradual
+SIM-ECR-015,ESTACAO-07,crítica,saudavel
+SIM-ECR-016,ESTACAO-08,não crítica,falhas_pontuais
+SIM-ECR-017,ESTACAO-01,não crítica,saudavel
+SIM-ECR-018,ESTACAO-02,crítica,saudavel
+SIM-ECR-019,ESTACAO-03,não crítica,desgaste_gradual
+SIM-ECR-020,ESTACAO-04,não crítica,saudavel
+SIM-ECR-021,ESTACAO-05,crítica,saudavel
+SIM-ECR-022,ESTACAO-06,não crítica,falhas_pontuais
+SIM-ECR-023,ESTACAO-07,não crítica,saudavel
+SIM-ECR-024,ESTACAO-08,crítica,desgaste_gradual
+SIM-ECR-025,ESTACAO-01,não crítica,saudavel
+SIM-ECR-026,ESTACAO-02,não crítica,saudavel
+SIM-ECR-027,ESTACAO-03,crítica,desgaste_gradual
+SIM-ECR-028,ESTACAO-04,não crítica,saudavel
+SIM-ECR-029,ESTACAO-05,não crítica,saudavel
+SIM-ECR-030,ESTACAO-06,crítica,desgaste_gradual
