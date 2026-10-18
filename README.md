@@ -4,15 +4,19 @@ Implementação da atividade revisada do Desafio Motiva, em Python puro.
 
 ## Estado do projeto
 
-Etapa 0 implementada: geração sintética e resumos. As atividades de buscas,
-percurso, planejamento e o notebook executado ainda serão desenvolvidos.
+Etapa 0 e atividades 1, 2 e 3 implementadas. O notebook.ipynb contém código,
+saídas executadas, tabelas e interpretação dos experimentos.
 
 ## Executar
 
 Na pasta do repositório, com Python 3.10 ou superior, sem dependências externas:
 
 ```text
+python percurso.py
 python gerar_dataset.py
+python comparar_buscas.py
+python alertas_acumulados.py
+python planejamento.py
 ```
 
 No PyCharm, execute `gerar_dataset.py` com a pasta do repositório como diretório
@@ -34,9 +38,10 @@ parâmetros reproduzem a base no mesmo ambiente Python.
 - 10 escadas críticas e 20 não críticas. Grupo e perfil têm significados distintos:
   grupo é a prioridade de atendimento; perfil é o comportamento simulado.
 - O arquivo embaralha os blocos das escadas, mantendo suas leituras em ordem temporal.
-- Oito identificadores provisórios de estação (`ESTACAO-01` a `ESTACAO-08`).
-  Na atividade 2, serão substituídos pelos nomes de estações de uma linha da Motiva,
-  em conjunto com a criação de `linha.csv`. Não representam uma rede real ainda.
+- Oito estações da Linha 4-Amarela, em ordem: Luz, República, Higienópolis-Mackenzie,
+  Paulista, Oscar Freire, Fradique Coutinho, Faria Lima e Pinheiros.
+- Base simulada em Luz. Tempos de deslocamento hipotéticos e iguais nos dois sentidos.
+  Fonte dos nomes e ordem: https://trilhos.motiva.com.br/viaquatro/linha-4---amarela/
 
 ## Arquivos
 
@@ -85,12 +90,73 @@ valores dos sensores, sem usar o perfil como atalho.
 Os dados e limites têm finalidade acadêmica. Não são medições da Motiva nem
 limites de diagnóstico validados. A base anterior do projeto permanece separada.
 
-## Próximas etapas
+## Notebook e entrega
 
-1. Buscas linear e binária manuais, comparações e 1.000 consultas.
-2. Primeira leitura que alcança cinco alertas acumulados por escada.
-3. Linha com estações reais em ordem, tempos de ida e volta e pilha com listas.
-4. Filas de atendimento, planos de 4, 6 e 8 horas, pendentes e redução do turno.
-5. `notebook.ipynb` executado com tabelas, experimentos e interpretação.
+Abra `notebook.ipynb` em Jupyter ou em um editor compatível, mantendo os módulos
+Python na mesma pasta. Reinicie o kernel e execute as células de cima para baixo.
+O notebook acompanha as funções dos arquivos `.py` e inclui as saídas dos experimentos.
+Os algoritmos usam somente a biblioteca padrão. Jupyter é necessário apenas para
+executar a interface do notebook. A execução recria os CSVs na pasta do projeto.
 
-Não usar grafos, `deque` ou bibliotecas prontas de busca.
+A entrega é o link do repositório GitHub via Teams, com notebook executado,
+arquivos de dados, módulos Python e este README.
+
+## Busca linear e binária
+
+`carregar_dados.py` lê uma entrada por ID, mantendo a ordem do arquivo.
+`busca_linear.py` e `busca_binaria.py` implementam as buscas manualmente.
+`comparar_buscas.py` usa 1.000 consultas com reposição e semente 42.
+As buscas recebem os mesmos alvos: a linear usa a ordem original e a binária,
+a ordem crescente. A unidade registrada é uma posição consultada; não contamos
+separadamente os dois testes condicionais da binária. Preparação e ordenação
+ficam fora da contagem. Não foram medidos tempos de execução.
+
+| Busca | Consultas | Total de posições consultadas | Média |
+| --- | --- | --- | --- |
+| Linear | 1.000 | 15.569 | 15,569 |
+| Binária | 1.000 | 4.082 | 4,082 |
+
+A redução ocorre porque a binária descarta metade do intervalo a cada repetição.
+O experimento considera alvos existentes; o notebook também mostra um ID ausente.
+Resultados em `comparacao_buscas.csv`.
+
+`alertas.py` aplica os seis limites. `alertas_acumulados.py` compara as buscas
+pela primeira leitura com pelo menos cinco alertas acumulados em todas as escadas.
+A binária continua à esquerda após encontrar um valor que atende ao limite.
+O acumulado não diminui e já está ordenado. Ausência é representada por -1,
+com horário vazio. Resultados em `comparacao_alertas.csv`.
+
+## Percurso e planejamento
+
+`percurso.py` cria `linha.csv` e `tempos_base.csv`, encontra estações com busca
+linear e representa ida e volta com pilha (`append` e `pop`). Pinheiros fica
+a 19 minutos de Luz no cenário, totalizando 38 de ida e volta.
+
+`planejamento.py` cria filas por grupo, ordenadas pelo primeiro alerta, com
+ID como desempate. O planejamento usa o primeiro alerta, não o quinto.
+Processa a fila crítica antes da normal, retirando com `pop(0)`.
+Cada atendimento inclui ida, serviço e volta à base. Serviço: 60 minutos para
+críticas e 40 para normais. Se um serviço não cabe, ele passa para pendentes
+e o programa verifica os seguintes. Os horários são minutos desde o início do
+turno; o fim inclui o retorno à base.
+
+| Turno | Limite em minutos | Usados | Atendidos | Pendentes |
+| --- | --- | --- | --- | --- |
+| 4 horas | 240 | 238 | 3 | 9 |
+| 4 horas menos 1 | 180 | 170 | 2 | 10 |
+| 6 horas | 360 | 334 | 4 | 8 |
+| 6 horas menos 1 | 300 | 246 | 3 | 9 |
+| 8 horas | 480 | 480 | 6 | 6 |
+| 8 horas menos 1 | 420 | 412 | 5 | 7 |
+
+Os 12 equipamentos em alerta ficam na agenda ou em pendentes, sem duplicação.
+Todos os cenários respeitam o limite. Ao reduzir uma hora, os últimos atendimentos
+são removidos com `pop()` até caber, sem preencher novamente a folga.
+A política segue as filas; não garante quantidade máxima de serviços.
+
+Os arquivos `turno_*_agenda.csv` e `turno_*_pendentes.csv` incluem os turnos
+originais e reduzidos. O notebook mostra as agendas, as rotas e os pendentes.
+O cenário é uma fotografia dos alertas do dataset; não simula novos alertas
+chegando durante a execução do turno.
+
+Não são usados grafos, `deque` ou bibliotecas prontas de busca.
