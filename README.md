@@ -1,5 +1,15 @@
 # Escala — Dynamic Programming
 
+## Integrantes
+
+| Nome | RM |
+|------|-----|
+| Gabriel Ardito | 568318 |
+| João Gonzales | 568166 |
+| Giovanna Oliveira | 566643 |
+| Marianne Mukai | 568001 |
+| Maria Druzeic | 566634 |
+
 Implementação da atividade revisada do Desafio Motiva, em Python puro.
 
 ## Estado do projeto
