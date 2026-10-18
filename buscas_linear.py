@@ -1,5 +1,5 @@
-escadas = ["SIM-ECR-003", "SIM-ECR-001", "SIM-ECR-002"]
-procurado = "SIM-ECR-001"
+from carregar_dados import escadas
+procurado = "SIM-ECR-021"
 
 
 def busca_linear(escadas, alvo):
