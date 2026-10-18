@@ -1,0 +1,31 @@
+id_escada,quantidade_leituras,total_alertas,situacao,posicao_linear,posicao_binaria,horario_quinto_alerta,comparacoes_linear,comparacoes_binaria
+SIM-ECR-006,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-008,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-029,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-028,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-007,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-024,240,142,Limite atingido,100,100,2026-08-05T04:00:00,101,8
+SIM-ECR-010,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-023,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-012,240,96,Limite atingido,147,147,2026-08-07T03:00:00,148,8
+SIM-ECR-021,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-009,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-030,240,58,Limite atingido,186,186,2026-08-08T18:00:00,187,8
+SIM-ECR-016,240,6,Limite atingido,130,130,2026-08-06T10:00:00,131,8
+SIM-ECR-018,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-025,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-017,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-014,240,149,Limite atingido,88,88,2026-08-04T16:00:00,89,8
+SIM-ECR-002,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-020,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-013,240,6,Limite atingido,144,144,2026-08-07T00:00:00,145,8
+SIM-ECR-026,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-022,240,6,Limite atingido,174,174,2026-08-08T06:00:00,175,8
+SIM-ECR-004,240,95,Limite atingido,148,148,2026-08-07T04:00:00,149,8
+SIM-ECR-011,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-019,240,57,Limite atingido,185,185,2026-08-08T17:00:00,186,8
+SIM-ECR-005,240,126,Limite atingido,112,112,2026-08-05T16:00:00,113,8
+SIM-ECR-027,240,152,Limite atingido,87,87,2026-08-04T15:00:00,88,8
+SIM-ECR-015,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-003,240,0,Limite não atingido,-1,-1,,240,8
+SIM-ECR-001,240,140,Limite atingido,103,103,2026-08-05T07:00:00,104,8

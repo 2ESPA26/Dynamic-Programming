@@ -1,0 +1,11 @@
+id_escada,estacao,grupo,primeiro_alerta
+SIM-ECR-012,Paulista,crítica,2026-08-06T21:00:00
+SIM-ECR-030,Fradique Coutinho,crítica,2026-08-08T10:00:00
+SIM-ECR-016,Pinheiros,não crítica,2026-08-01T03:00:00
+SIM-ECR-013,Oscar Freire,não crítica,2026-08-03T21:00:00
+SIM-ECR-014,Fradique Coutinho,não crítica,2026-08-04T04:00:00
+SIM-ECR-001,Luz,não crítica,2026-08-05T00:00:00
+SIM-ECR-005,Oscar Freire,não crítica,2026-08-05T10:00:00
+SIM-ECR-004,Paulista,não crítica,2026-08-06T20:00:00
+SIM-ECR-019,Higienópolis-Mackenzie,não crítica,2026-08-08T05:00:00
+SIM-ECR-022,Fradique Coutinho,não crítica,2026-08-02T16:00:00

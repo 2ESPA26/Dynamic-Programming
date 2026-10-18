@@ -1,0 +1,4 @@
+id_escada,estacao,grupo,primeiro_alerta,rota_ida,rota_volta,inicio_minutos,fim_minutos,minutos_servico
+SIM-ECR-027,Higienópolis-Mackenzie,crítica,2026-08-04T05:00:00,Luz -> República -> Higienópolis-Mackenzie,Higienópolis-Mackenzie -> República -> Luz,0,72,60
+SIM-ECR-024,Pinheiros,crítica,2026-08-04T18:00:00,Luz -> República -> Higienópolis-Mackenzie -> Paulista -> Oscar Freire -> Fradique Coutinho -> Faria Lima -> Pinheiros,Pinheiros -> Faria Lima -> Fradique Coutinho -> Oscar Freire -> Paulista -> Higienópolis-Mackenzie -> República -> Luz,72,170,60
+SIM-ECR-012,Paulista,crítica,2026-08-06T21:00:00,Luz -> República -> Higienópolis-Mackenzie -> Paulista,Paulista -> Higienópolis-Mackenzie -> República -> Luz,170,246,60

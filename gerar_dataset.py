@@ -1,10 +1,10 @@
-"""Geração reproduzível de dados sintéticos para o desafio Motiva."""
 import argparse
 import csv
 import random
 from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
+from percurso import carregar_linha
 from statistics import mean
 
 FAIXAS = {
@@ -47,10 +47,11 @@ def gerar_dataset(n_escadas, n_leituras, semente):
     random.shuffle(perfis)
     cadastros = []
     blocos = []
+    linha = carregar_linha()
     for numero, perfil in enumerate(perfis, start=1):
         cadastro = {
             'id_escada': f'SIM-ECR-{numero:03d}',
-            'estacao': f'ESTACAO-{(numero - 1) % 8 + 1:02d}',
+            'estacao': linha[(numero - 1) % len(linha)][0],
             'grupo': 'crítica' if numero % 3 == 0 else 'não crítica',
             'perfil': perfil,
         }
